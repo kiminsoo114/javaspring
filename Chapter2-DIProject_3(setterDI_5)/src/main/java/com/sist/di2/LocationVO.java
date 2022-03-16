@@ -1,32 +1,28 @@
 package com.sist.di2;
 
 public class LocationVO {
-	private String title;
-	private String msg;
-	private String address;
-
-	public String getTitle() {
-		return title;
+    private String name;
+    private String message;
+    private String addr;
+	public String getName() {
+		return name;
 	}
-
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public String getMsg() {
-		return msg;
+	public String getMessage() {
+		return message;
 	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setMessage(String message) {
+		this.message = message;
 	}
-
-	public String getAddress() {
-		return address;
+	public String getAddr() {
+		return addr;
 	}
-
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
-
+	
+	
+	   
 }
