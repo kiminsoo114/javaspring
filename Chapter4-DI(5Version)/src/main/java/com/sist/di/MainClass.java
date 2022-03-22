@@ -1,7 +1,6 @@
 package com.sist.di;
 import java.util.*;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -9,47 +8,58 @@ import org.springframework.stereotype.Component;
 import com.sist.config.NatureConfig;
 import com.sist.dao.*;
 import com.sist.vo.NatureVO;
-
 /*
-	½ºÇÁ¸µ¿¡¼­ °ü¸®ÇÏ´Â Å¬·¡½ºÀÇ »ı¸íÁÖ±â (HashMap¿¡ ÀúÀå) => getBean() : DL
-	DL => id¸í(¹®ÀÚ¿­)À¸·Î °´Ã¼ ÁÖ¼Ò¸¦ Ã£¾Æ¿Â´Ù
-	DI => ¸Ş¸ğ¸® ÇÒ´ç½Ã¿¡ ÇÊ¿äÇÑ º¯¼öÀÇ °ªÀ» ÁÖÀÔ
-	---------------------------------------------------------------
-				setXxx("¿©±â¿¡ °ªÀ» Ã·ºÎ")
-				MainClass("¿©±â¿¡ °ªÀ» Ã·ºÎ")
-	--------------------------------------------------------------
-	¿¹) 
-		class A
-		{
-			String name;
-			public void SetName(String name)
-			{
-				this.name=name;
-			}
-		}
-		A a =new A();
-		a.setName("È«±æµ¿"); => a¶ó´Â °´Ã¼¸¦ °ü¸® (½ºÇÁ¸µ: Å¬·¡½º °ü¸®ÀÚ)
-		
-		=> ½ºÇÁ¸µ
-		<bean id="a" class="A"
-		p:name="È«±æµ¿"
-		/>
-*/
+ *   ìŠ¤í”„ë§ì—ì„œ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤ì˜ ìƒëª…ì£¼ê¸° (HashMapì— ì €ì¥) => getBean() : DL
+ *     DL => idëª…(ë¬¸ìì—´)ìœ¼ë¡œ ê°ì²´ ì£¼ì†Œë¥¼ ì°¾ì•„ ì˜¨ë‹¤ 
+ *     DI => ë©”ëª¨ë¦¬ í• ë‹¹ì‹œì— í•„ìš”í•œ ë³€ìˆ˜ì˜ ê°’ì„ ì£¼ì… 
+ *     ------------------------------------
+ *           setXxx("ì—¬ê¸°ì— ê°’ì„ ì²¨ë¶€") 
+ *           MainClass("ì—¬ê¸°ì— ê°’ì„ ì²¨ë¶€")
+ *     ------------------------------------
+ *     ì˜ˆ)
+ *         class A
+ *         {
+ *            String name;
+ *            public void setName(String name)
+ *            {
+ *               this.name=name;
+ *            }
+ *         }
+ *         
+ *         A a=new A();
+ *         a.setName("í™ê¸¸ë™"); => aë¼ëŠ” ê°ì²´ë¥¼ ê´€ë¦¬ (ìŠ¤í”„ë§:í´ë˜ìŠ¤  ê´€ë¦¬ì)
+ *         
+ *         => ìŠ¤í”„ë§ 
+ *         <bean id="a" class="A"
+ *          p:name="í™ê¸¸ë™"
+ *         />
+ *         
+ *      ìˆœì„œ (ìŠ¤í”„ë§) : XMLì½ê¸° , ìë°”ì½ê¸°
+ *      1) ëª¨ë“  í´ë˜ìŠ¤ ë©”ëª¨ë¦¬ í• ë‹¹ì„ í•œë‹¤ 
+ *      2) setterDIë¥¼ ìˆ˜í–‰ 
+ *      3) init-method í˜¸ì¶œ (ìˆëŠ” ê²½ìš°)
+ *      ----------------------------
+ *        í”„ë¡œê·¸ë˜ë¨¸ê°€ í™œìš© 
+ *      ----------------------------
+ *      4) destory-method í˜¸ì¶œ (ë©”ëª¨ë¦¬ì—ì„œ í•´ì œ)
+ */
 @Component("mc")
 public class MainClass {
-		@Autowired
-		private NatureDAO dao;
-		public static void main(String[] args) {
-		 AnnotationConfigApplicationContext app=
-				 new AnnotationConfigApplicationContext(NatureConfig.class);
-		 MainClass m=(MainClass)app.getBean("mc");
-		 List<NatureVO> list=m.dao.natureListData();
-		 for(NatureVO vo:list)
-		 {
-			 System.out.println(vo.getTitle());
-			 System.out.println(vo.getAddress());
-			 System.out.println(vo.getMsg());
-			 System.out.println("================================");
-		 }
-		}
+	@Autowired
+    private NatureDAO dao;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        AnnotationConfigApplicationContext app=
+        	new AnnotationConfigApplicationContext(NatureConfig.class);
+        MainClass m=(MainClass)app.getBean("mc");
+        List<NatureVO> list=m.dao.natureListData();
+        for(NatureVO vo:list)
+        {
+        	System.out.println(vo.getTitle());
+        	System.out.println(vo.getAddress());
+        	System.out.println(vo.getMsg());
+        	System.out.println("=============================");
+        }
+	}
+
 }

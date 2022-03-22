@@ -4,28 +4,28 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /*
-	½ºÇÁ¸µ
-	1. °ü¸® ´ë»ó Å¬·¡½º¸¦ XML¿¡ µî·Ï
+	ìŠ¤í”„ë§
+	1. ê´€ë¦¬ ëŒ€ìƒ í´ë˜ìŠ¤ë¥¼ XMLì— ë“±ë¡
 	   ------------ 
-	   	~VO¸¦ Á¦¿ÜÇÑ ¸ğµç Å¬·¡½º´Â ½ºÇÁ¸µ¿¡¼­ °ü¸®(±â´É)
-	   	--- ±â´ÉÀÌ ¾Æ´Ï¶ó µ¥ÀÌÅÍÇü(ÇÁ·Î±×·¡¸Ó°¡ °ü¸®)
-	2. ½ºÇÁ¸µ¿¡¼­ »ç¿ëÀÚ°¡ µî·ÏÇÑ Å¬·¡½º¸¦ ¾î¶² Å¬·¡½º¿¡¼­ °ü¸®ÇÏ´ÂÁö ¿©ºÎ 
-			   -----------------  ----------------------- (ÄÁÅ×ÀÌ³Ê)
-			   	 ½ºÇÁ¸µ¿¡¼­ Áö¿øÇÏ´Â ÄÁÅ×ÀÌ³Ê Å¬·¡½º
+	   	~VOë¥¼ ì œì™¸í•œ ëª¨ë“  í´ë˜ìŠ¤ëŠ” ìŠ¤í”„ë§ì—ì„œ ê´€ë¦¬(ê¸°ëŠ¥)
+	   	--- ê¸°ëŠ¥ì´ ì•„ë‹ˆë¼ ë°ì´í„°í˜•(í”„ë¡œê·¸ë˜ë¨¸ê°€ ê´€ë¦¬)
+	2. ìŠ¤í”„ë§ì—ì„œ ì‚¬ìš©ìê°€ ë“±ë¡í•œ í´ë˜ìŠ¤ë¥¼ ì–´ë–¤ í´ë˜ìŠ¤ì—ì„œ ê´€ë¦¬í•˜ëŠ”ì§€ ì—¬ë¶€ 
+			   -----------------  ----------------------- (ì»¨í…Œì´ë„ˆ)
+			   	 ìŠ¤í”„ë§ì—ì„œ ì§€ì›í•˜ëŠ” ì»¨í…Œì´ë„ˆ í´ë˜ìŠ¤
 			   	 	BeanFactory
 			   	 		|
 			   	 --------------------
 			   	 |					|
 			ApplicationContext     AnnotationConfigApplicationContext
-				(core => Å¬·¡½º µî·Ï, DI)+AOP			
+				(core => í´ë˜ìŠ¤ ë“±ë¡, DI)+AOP			
 				(4~5 => XML)								|	
 				(4~5 => Annotation)
 			
 				|
 			WebApplicationContext(MVC)
-			=> ÄÁÅ×ÀÌ³Ê¿¡ µî·ÏÇÏ´Â ¹æ½Ä µÎ°¡Áö
+			=> ì»¨í…Œì´ë„ˆì— ë“±ë¡í•˜ëŠ” ë°©ì‹ ë‘ê°€ì§€
 				1) XML (4)
-				2) ÀÚ¹Ù·Î µî·Ï(5) ==> Spring -Boot
+				2) ìë°”ë¡œ ë“±ë¡(5) ==> Spring -Boot
 				
 */
 public class MainClass {
@@ -33,34 +33,34 @@ public class MainClass {
 		
 		ApplicationContext app=
 				new ClassPathXmlApplicationContext("app.xml");
-		// => ÆÄ½Ì(XMLÀ» ÀĞ¾î¼­ µî·ÏµÈ Å¬·¡½ºÀÇ ¸Ş¸ğ¸® ÇÒ´çÀÌ ¿Ï·á)
-		// 2. ÇÁ·Î±×·¥¿¡ ÇÊ¿äÇÑ °´Ã¼¸¦ ¾ò¾î¼­ »ç¿ë
-		Sawon s=(Sawon)app.getBean("sa"); //°´Ã¼ »ı¼º, ¼Ò¸ê ´ã´ç
-		// º¯¼ö¿¡ ´ëÇÑ ÃÊ±â°ª ´ã´ç(DI)
-		s.setName("È«±æµ¿");
-		s.setDept("°³¹ßºÎ");
-		s.setJob("»ç¿ø");
+		// => íŒŒì‹±(XMLì„ ì½ì–´ì„œ ë“±ë¡ëœ í´ë˜ìŠ¤ì˜ ë©”ëª¨ë¦¬ í• ë‹¹ì´ ì™„ë£Œ)
+		// 2. í”„ë¡œê·¸ë¨ì— í•„ìš”í•œ ê°ì²´ë¥¼ ì–»ì–´ì„œ ì‚¬ìš©
+		Sawon s=(Sawon)app.getBean("sa"); //ê°ì²´ ìƒì„±, ì†Œë©¸ ë‹´ë‹¹
+		// ë³€ìˆ˜ì— ëŒ€í•œ ì´ˆê¸°ê°’ ë‹´ë‹¹(DI)
+		s.setName("í™ê¸¸ë™");
+		s.setDept("ê°œë°œë¶€");
+		s.setJob("ì‚¬ì›");
 		
-		System.out.println("ÀÌ¸§ : "+s.getName());
-		System.out.println("ºÎ¼­ : "+s.getDept());
-		System.out.println("Á÷À§ : "+s.getJob());
+		System.out.println("ì´ë¦„ : "+s.getName());
+		System.out.println("ë¶€ì„œ : "+s.getDept());
+		System.out.println("ì§ìœ„ : "+s.getJob());
 		
-		// Singleton(½Ì±ÛÅÏ) => ¸Ş¸ğ¸®¸¦ ÇÑ°³¸¸ »ı¼º => Àç»ç¿ëÇØ¼­ »ç¿ë
-		// 3. °´Ã¼¸¦ ¾ò¾î ¿Â´Ù
-		// 4. °´Ã¼ ¿äÃ»½Ã ¸¶´Ù µû¶ó ¸Ş¸ğ¸®¸¦ ÀúÀåÇÒ ¶§ : scope="prototype"
-		Sawon s1=(Sawon)app.getBean("sa"); //ÇÊ¿ä½Ã¸¶´Ù ½ºÇÁ¸µ¿¡ µî·ÏµÈ Å¬·¡½º¸¦ ¾ò¾î¿Í¼­ ¾´´Ù
-		s1.setName("½ÉÃ»ÀÌ");
-		s1.setDept("±âÈ¹ºÎ");
-		s1.setJob("´ë¸®");
+		// Singleton(ì‹±ê¸€í„´) => ë©”ëª¨ë¦¬ë¥¼ í•œê°œë§Œ ìƒì„± => ì¬ì‚¬ìš©í•´ì„œ ì‚¬ìš©
+		// 3. ê°ì²´ë¥¼ ì–»ì–´ ì˜¨ë‹¤
+		// 4. ê°ì²´ ìš”ì²­ì‹œ ë§ˆë‹¤ ë”°ë¼ ë©”ëª¨ë¦¬ë¥¼ ì €ì¥í•  ë•Œ : scope="prototype"
+		Sawon s1=(Sawon)app.getBean("sa"); //í•„ìš”ì‹œë§ˆë‹¤ ìŠ¤í”„ë§ì— ë“±ë¡ëœ í´ë˜ìŠ¤ë¥¼ ì–»ì–´ì™€ì„œ ì“´ë‹¤
+		s1.setName("ì‹¬ì²­ì´");
+		s1.setDept("ê¸°íšë¶€");
+		s1.setJob("ëŒ€ë¦¬");
 		System.out.println("s="+s);
 		System.out.println("s1="+s1);
-		System.out.println("ÀÌ¸§ : "+s1.getName());
-		System.out.println("ºÎ¼­ : "+s1.getDept());
-		System.out.println("Á÷À§ : "+s1.getJob());
+		System.out.println("ì´ë¦„ : "+s1.getName());
+		System.out.println("ë¶€ì„œ : "+s1.getDept());
+		System.out.println("ì§ìœ„ : "+s1.getJob());
 				
-		System.out.println("ÀÌ¸§ : "+s.getName());
-		System.out.println("ºÎ¼­ : "+s.getDept());
-		System.out.println("Á÷À§ : "+s.getJob());
+		System.out.println("ì´ë¦„ : "+s.getName());
+		System.out.println("ë¶€ì„œ : "+s.getDept());
+		System.out.println("ì§ìœ„ : "+s.getJob());
 		
 	}
 }

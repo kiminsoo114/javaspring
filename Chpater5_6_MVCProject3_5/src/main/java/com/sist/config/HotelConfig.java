@@ -95,3 +95,5 @@ public class HotelConfig implements WebMvcConfigurer{
 		return mfb;
 	}
 }
+
+

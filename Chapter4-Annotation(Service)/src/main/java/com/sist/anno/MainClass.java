@@ -1,5 +1,7 @@
 package com.sist.anno;
 
+
+//aaa
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -8,21 +10,23 @@ import java.util.*;
 import com.sist.dao.*;
 import com.sist.vo.*;
 @Component("mc")
-//½ºÇÁ¸µ¿¡ ¸Þ¸ð¸® ÇÒ´çÀ» ¿äÃ» => ÇÁ·Î±×·¥ Á¾·á½Ã±îÁö ÀúÀå
+// ìŠ¤í”„ë§ì— ë©”ëª¨ë¦¬í• ë‹¹ ìš”ì²­ => í”„ë¡œê·¸ëž¨ ì¢…ë£Œì‹œê¹Œì§€ ì €ìž¥
 public class MainClass {
 	@Autowired
-	private LocationService service;
+    private LocationService service;
 	public static void main(String[] args) {
-		ApplicationContext app=
-				new ClassPathXmlApplicationContext("app.xml");
-		MainClass mc=(MainClass)app.getBean("mc");
-		List<LocationVO>list=mc.service.locationListData();
-		for(LocationVO vo:list)
-		{
-			System.out.println(vo.getTitle());
-			System.out.println(vo.getAddress());
-			System.out.println(vo.getMsg());
-			System.out.println("=============================");
-		}
+		// TODO Auto-generated method stub
+        ApplicationContext app=
+        	  new ClassPathXmlApplicationContext("app.xml");
+        MainClass mc=(MainClass)app.getBean("mc");
+        List<LocationVO> list=mc.service.locationListData();
+        for(LocationVO vo:list)
+        {
+        	System.out.println(vo.getTitle());
+        	System.out.println(vo.getAddress());
+        	System.out.println(vo.getMsg());
+        	System.out.println("===============================");
+        }
 	}
+
 }

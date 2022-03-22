@@ -6,8 +6,8 @@ import lombok.Setter;
 @Setter
 @Getter
 public class NatureVO {
-	private String title;
-	private String address;
-	private String msg;
-	//VO => ÄÃ·³¸í ¸ÅÄª ==> ÀÚ¿¬ÀÇ ÇÑ°³¿¡ ´ëÇÑ Á¤º¸¸¦ °¡Áö°í ÀÖ´Ù (°ü·ÃµÈ µ¥ÀÌÅÍ¸¦ ¸ð¾Æ¼­ Ã³¸®)
+  private String title;
+  private String address;
+  private String msg;
+  // VO => ì»¬ëŸ¼ëª… ë§¤ì¹­  ==> ìžì—°ì˜ í•œê°œì— ëŒ€í•œ ì •ë³´ë¥¼ ê°€ì§€ê³  ìžˆë‹¤ (ê´€ë ¨ëœ ë°ì´í„°ë¥¼ ëª¨ì•„ì„œ ì²˜ë¦¬)
 }

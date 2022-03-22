@@ -1,24 +1,26 @@
 package com.sist.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sist.mapper.LocationMapper;
 import com.sist.vo.LocationVO;
-
-import java.util.*;
-//DAO VS Service(Â÷ÀÌÁ¡)
-//OOP VS AOP (Â÷ÀÌÁ¡)
-//DI°¡ ¹¹³Ä
-//JDBC VS ORM Â÷ÀÌÁ¡ÀÌ ¹¹³Ä
-//½ºÇÁ¸µÀ» Á¤¼®À¸·Î ±¸Çö
+// DAO VS Service (ì°¨ì´ì )
+// OOP VS AOP 
+// DI 
+// JDBC VS ORM
+// ìŠ¤í”„ë§ì„ ì •ì„ìœ¼ë¡œ êµ¬í˜„ 
 @Service
-public class LocationServiceImpl implements LocationService {
+public class LocationServiceImpl implements LocationService{
 
-		@Autowired
-		private LocationMapper mapper;
-		@Override
-		public List<LocationVO>locationListData(){
-			return mapper.locationListData();
-		}
+	@Autowired
+	private LocationMapper mapper;
+	@Override
+	public List<LocationVO> locationListData() {
+		// TODO Auto-generated method stub
+		return mapper.locationListData();
+	}
+
 }

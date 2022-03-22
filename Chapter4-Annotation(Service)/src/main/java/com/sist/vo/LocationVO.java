@@ -3,13 +3,13 @@ package com.sist.vo;
 import lombok.Getter;
 import lombok.Setter;
 
-//»ç¿ëÀÚ Á¤ÀÇ µ¥ÀÌÅÍÇü (½ºÇÁ¸µ¿¡¼­ ¸Þ¸ð¸®ÇÒ´ç ÇÏÁö¾Ê´Â´Ù)
-//~VO, ~DTO => »ç¿ëÀÚ Á¤ÀÇ µ¥ÀÌÅÍÇü(¸Þ¸ð¸® ÇÒ´ç ÇÊ¿ä½Ã¸¶´Ù ÇÁ·Î±×·¡¸Ó°¡ »ç¿ë)
-//Integer, Double, String(µ¥ÀÌÅÍ¸¦ ¸ð¾Æ¼­ °ü¸®ÇÏ´Â ¿ªÇÒ) => ÇÑ°³, ÇÑ¸í¿¡´ëÇÑ Á¤º¸
-@Getter
+// ì‚¬ìš©ìž ì •ì˜ ë°ì´í„°í˜• (ìŠ¤í”„ë§ì—ì„œ ë©”ëª¨ë¦¬ í• ë‹¹í•˜ì§€ ì•ŠëŠ”ë‹¤)
+// ~VO , ~DTO => ì‚¬ìš©ìž ì •ì˜ ë°ì´í„°í˜• (ë©”ëª¨ë¦¬í• ë‹¹ í•„ìš”ì‹œë§ˆë‹¤ í”„ë¡œê·¸ëž˜ë¨¸ê°€ ì‚¬ìš©)
+// Integer , Double , String (ë°ì´í„°ë¥¼ ëª¨ì•„ì„œ ê´€ë¦¬í•˜ëŠ” ì—­í• ) => í•œê°œ,í•œëª… 
 @Setter
+@Getter
 public class LocationVO {
-	private String title;
-	private String address;
-	private String msg;
+  private String title;
+  private String address;
+  private String msg;
 }

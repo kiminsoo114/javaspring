@@ -6,15 +6,13 @@ public class MainClass {
 		ApplicationContext app=
 				new ApplicationContext(path);
 		Sawon sa=(Sawon)app.getBean("sa");
-		sa.setName("¹Ú¹®¼ö");
-		sa.setDept("¿µ¾÷ºÎ");
-		sa.setJob("»ç¿ø");
+		sa.setName("ë°•ë¬¸ìˆ˜");
+		sa.setDept("ì˜ì—…ë¶€");
+		sa.setJob("ì‚¬ì›");
 		
-		System.out.println("ÀÌ¸§:"+sa.getName());
-		System.out.println("ºÎ¼­:"+sa.getDept());
-		System.out.println("Á÷À§:"+sa.getJob());
+		System.out.println("ì´ë¦„:"+sa.getName());
+		System.out.println("ë¶€ì„œ:"+sa.getDept());
+		System.out.println("ì§ìœ„:"+sa.getJob());
 	}
 	
 }
-
-

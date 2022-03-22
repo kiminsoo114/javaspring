@@ -3,9 +3,8 @@ package com.sist.container5;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /*
-	AnnotationConfingApplicationContext : ÀÚ¹Ù·Î µî·ÏµÈ °æ¿ì
-	ApplicationContext : XML·Î Å¬·¡½º µî·Ï½Ã¿¡
-
+	AnnotationConfingApplicationContext : ìë°”ë¡œ ë“±ë¡ëœ ê²½ìš°
+	ApplicationContext : XMLë¡œ í´ë˜ìŠ¤ ë“±ë¡ì‹œì—
 */
 public class MainClass {
 
@@ -13,31 +12,29 @@ public class MainClass {
 		AnnotationConfigApplicationContext app=
 					new AnnotationConfigApplicationContext(SawonConfig.class);
 		
-		Sawon sa=(Sawon)app.getBean("sa"); //object·Î ºÒ·ÁÁ®¿À±â¶§¹®¿¡ Çüº¯È¯À» ÇØÁÖ¾î¾ßÇÑ´Ù.
-		// Sawon sa=app.getBean("sa",Sawon.class) µµ °¡´É
-		sa.setName("¹Ú¹®¼ö");
-		sa.setDept("°³¹ßºÎ");
-		sa.setLoc("¼­¿ï");
+		Sawon sa=(Sawon)app.getBean("sa"); //objectë¡œ ë¶ˆë ¤ì ¸ì˜¤ê¸°ë•Œë¬¸ì— í˜•ë³€í™˜ì„ í•´ì£¼ì–´ì•¼í•œë‹¤.
+		// Sawon sa=app.getBean("sa",Sawon.class) ë„ ê°€ëŠ¥
+		sa.setName("ë°•ë¬¸ìˆ˜");
+		sa.setDept("ê°œë°œë¶€");
+		sa.setLoc("ì„œìš¸");
 		
-		System.out.println("ÀÌ¸§:"+sa.getName());
-		System.out.println("ºÎ¼­:"+sa.getDept());
-		System.out.println("±Ù¹«Áö:"+sa.getLoc());
+		System.out.println("ì´ë¦„:"+sa.getName());
+		System.out.println("ë¶€ì„œ:"+sa.getDept());
+		System.out.println("ê·¼ë¬´ì§€:"+sa.getLoc());
 		
-		Sawon sa1=(Sawon)app.getBean("sa"); //object·Î ºÒ·ÁÁ®¿À±â¶§¹®¿¡ Çüº¯È¯À» ÇØÁÖ¾î¾ßÇÑ´Ù.
-		// Sawon sa=app.getBean("sa",Sawon.class) µµ °¡´É
-		sa1.setName("ÀÌ¼ø½Å");
-		sa1.setDept("ÃÑ¹«ºÎ");
-		sa1.setLoc("ºÎ»ê");
+		Sawon sa1=(Sawon)app.getBean("sa"); //objectë¡œ ë¶ˆë ¤ì ¸ì˜¤ê¸°ë•Œë¬¸ì— í˜•ë³€í™˜ì„ í•´ì£¼ì–´ì•¼í•œë‹¤.
+		// Sawon sa=app.getBean("sa",Sawon.class) ë„ ê°€ëŠ¥
+		sa1.setName("ì´ìˆœì‹ ");
+		sa1.setDept("ì´ë¬´ë¶€");
+		sa1.setLoc("ë¶€ì‚°");
 		System.out.println("========sa1========");
-		System.out.println("ÀÌ¸§:"+sa1.getName());
-		System.out.println("ºÎ¼­:"+sa1.getDept());
-		System.out.println("±Ù¹«Áö:"+sa1.getLoc());
+		System.out.println("ì´ë¦„:"+sa1.getName());
+		System.out.println("ë¶€ì„œ:"+sa1.getDept());
+		System.out.println("ê·¼ë¬´ì§€:"+sa1.getLoc());
 		System.out.println("========sa========");
-		System.out.println("ÀÌ¸§:"+sa.getName());
-		System.out.println("ºÎ¼­:"+sa.getDept());
-		System.out.println("±Ù¹«Áö:"+sa.getLoc());
+		System.out.println("ì´ë¦„:"+sa.getName());
+		System.out.println("ë¶€ì„œ:"+sa.getDept());
+		System.out.println("ê·¼ë¬´ì§€:"+sa.getLoc());
 	}
 	}
-
-
 

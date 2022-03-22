@@ -6,24 +6,32 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.sist.dao.*;
 public class MainClass {
+
 	public static void main(String[] args) {
-		ApplicationContext app=
-				new ClassPathXmlApplicationContext("app.xml");
-		//app(Container => XML¿¡ µî·ÏµÈ ¸ğµç Å¬·¡½º¸¦ °ü¸®ÇÏ´Â ¿ªÇÒ
-		BooksDAO dao=(BooksDAO)app.getBean("dao");
-		List<BooksVO> list =dao.booksListData();
-		for(BooksVO vo:list)
-		{
-			System.out.println(vo.getTitle()+"("+vo.getPrice()+")");
-		}
-		System.out.println("============================");
-		Scanner scan=new Scanner(System.in);
-		System.out.println("Á¦¸ñ:");
-		String title=scan.next();
-		list=dao.booksFindData(title);
-		for(BooksVO vo:list)
-		{
-			System.out.println(vo.getTitle()+"("+vo.getPrice()+")");
-		}
+		// TODO Auto-generated method stub
+        ApplicationContext app=
+        		new ClassPathXmlApplicationContext("app.xml");
+        // app(Container => XMLì— ë“±ë¡ëœ ëª¨ë“  í´ë˜ìŠ¤ë¥¼ ê´€ë¦¬í•˜ëŠ” ì—­í• )
+        BooksDAO dao=(BooksDAO)app.getBean("dao");
+        List<BooksVO> list=dao.booksListData();
+        for(BooksVO vo:list)
+        {
+        	System.out.println(vo.getTitle()+"("+vo.getPrice()+")");
+        }
+        System.out.println("=======================");
+        Scanner scan=new Scanner(System.in);
+        System.out.print("ì œëª©:");
+        String title=scan.next();
+        list=dao.booksFindData(title);
+        for(BooksVO vo:list)
+        {
+        	System.out.println(vo.getTitle()+"("+vo.getPrice()+")");
+        }
 	}
-}		
+
+}
+
+
+
+
+

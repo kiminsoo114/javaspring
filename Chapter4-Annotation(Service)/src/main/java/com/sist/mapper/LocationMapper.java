@@ -1,5 +1,5 @@
 package com.sist.mapper;
-//¸Ş¸ğ¸® ÇÒ´çÀÌ ¾ÈµÊ! => ±¸Çö¸¸ ¿äÃ»
+//  ë©”ëª¨ë¦¬í• ë‹¹ (X) => êµ¬í˜„ì„ ìš”ì²­ 
 
 import org.apache.ibatis.annotations.Select;
 
@@ -7,6 +7,6 @@ import com.sist.vo.LocationVO;
 
 import java.util.*;
 public interface LocationMapper {
-	@Select("SELECT title,address,msg FROM seoul_location")
-	public List<LocationVO> locationListData();//±¸Çö ¿Ï·á 
+  @Select("SELECT title,address,msg FROM seoul_location")
+  public List<LocationVO> locationListData();//êµ¬í˜„ ì™„ë£Œ
 }

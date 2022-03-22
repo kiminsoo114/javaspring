@@ -1,7 +1,7 @@
 package com.sist.container;
-// ½ºÇÁ¸µÀº µî·ÏµÈ Å¬·¡½º¸¦ °ü¸®ÇØÁÖ´Â ¿ªÇÒ
-// ½ºÇÁ¸µ => ÄÁÅ×ÀÌ³Ê(Å¬·¡½º °ü¸® ¿µ¿ª)
-// Å¬·¡½º = ÄÄÆ÷³ÍÆ® (ÇÑ°³ ÀÌ»óÀÇ ±â´ÉÀ» °¡Áö°í ÀÖ´Â Å¬·¡½º)
+// ìŠ¤í”„ë§ì€ ë“±ë¡ëœ í´ëž˜ìŠ¤ë¥¼ ê´€ë¦¬í•´ì£¼ëŠ” ì—­í• 
+// ìŠ¤í”„ë§ => ì»¨í…Œì´ë„ˆ(í´ëž˜ìŠ¤ ê´€ë¦¬ ì˜ì—­)
+// í´ëž˜ìŠ¤ = ì»´í¬ë„ŒíŠ¸ (í•œê°œ ì´ìƒì˜ ê¸°ëŠ¥ì„ ê°€ì§€ê³  ìžˆëŠ” í´ëž˜ìŠ¤)
 public class Sawon {
 	private String name;
 	private String dept;

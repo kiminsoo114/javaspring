@@ -4,6 +4,6 @@ public class Hello {
 	public String sayHello(String name)
 	{	
 		
-		return name+"´Ô È¯¿µÇÕ´Ï´Ù";
+		return name+"ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤!!";
 	}
 }

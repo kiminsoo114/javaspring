@@ -1,36 +1,38 @@
 package com.sist.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sist.mapper.NatureMapper;
 import com.sist.vo.NatureVO;
-import java.util.*;
-//Mapper => DAO => MainClass
+// Mapper => DAO => MainClass
 /*
-	½ºÇÁ¸µ¿¡¼­ ÆĞÅ°Áö ´ÜÀ§·Î Å¬·¡½º µî·Ï
-	=> ¸Ş¸ğ¸® ÇÒ´ç ¿äÃ»ÇÏ´Â °Í
-	Å¬·¡½º À§¿¡ AnnotationÀ» ¿Ã·Á¼­ ±¸ºĞÀ» ÇØÁà¾ßÇÑ´Ù
-	1) Component : ÀÏ¹İ Å¬·¡½º (MainClass, À¥ Å©·Ñ¸µ, XMLÆÄ½Ì, µ¥ÀÌÅÍ ºĞ¼®)
-				   µ¥ÀÌÅÍ ºĞ¼® : AI , data.go.kr (µ¥ÀÌÅÍ ¼öÁı)
-	2) Repository : ÀúÀå¼Ò (DAO = µ¥ÀÌÅÍº£ÀÌ½º °ü·Ã)
-	3) Service : BI (DAO ¿©·¯°³¸¦ ÅëÇÕÇØ¼­ »ç¿ë)
-	-------------------------------------------------À¥¿¡¼­ »ç¿ë
-	4) Controller : Model (¿äÃ»À» ¹Ş¾Æ¼­ ¿äÃ»Ã³¸® ÈÄ¿¡ °á°ú°ªÀ» Àü¼Û)
-					=> È­¸é ÀÌµ¿(ÆÄÀÏ¸íÀ» Àü¼Û)
-	5) RestController : Model (¿äÃ»À» ¹Ş¾Æ¼­ ¿äÃ»Ã³¸® ÈÄ¿¡ °á°ú°ªÀ» Àü¼Û)
-					=> µ¥ÀÌÅÍ Àü¼Û(Ajax ,VueJS, ReactJS) => JSON
-	6) ControllerAdvice : ÅëÇÕ ¿¹¿ÜÃ³¸®
-	---------------------
-	=> ¸Ş¸ğ¸® ÇÒ´çÀÌ ¾ø´Â °Í
-*/
+ *   ìŠ¤í”„ë§ì—ì„œ íŒ¨í‚¤ì§€ ë‹¨ìœ„ë¡œ í´ë˜ìŠ¤ ë“±ë¡ 
+ *   => ë©”ëª¨ë¦¬ í• ë‹¹ ìš”ì²­
+ *   í´ë˜ìŠ¤ìœ„ì— ì–´ë…¸í…Œì´ì…˜ì„ ì˜¬ë ¤ì„œ êµ¬ë¶„ 
+ *   1) Component  : ì¼ë°˜ í´ë˜ìŠ¤ (ì›¹ í¬ë¡¤ë§ , XMLíŒŒì‹± , ë°ì´í„° ë¶„ì„)
+ *                   ë°ì´í„°ë¶„ì„ : AI , data.go.kr (ë°ì´í„° ìˆ˜ì§‘)
+ *   2) Repository : ì €ì¥ì†Œ (DAO=ë°ì´í„°ë² ì´ìŠ¤ ê´€ë ¨)
+ *   3) Service : BI(DAOì—¬ëŸ¬ê°œë¥¼ í†µí•©í•´ì„œ ì‚¬ìš©)
+ *   ------------------------------------- ì›¹ì—ì„œ ì‚¬ìš©
+ *   4) Controller : Model (ìš”ì²­ì„ ë°›ì•„ì„œ ìš”ì²­ì²˜ë¦¬ í›„ì— ê²°ê³¼ê°’ì„ ì „ì†¡) 
+ *                   => í™”ë©´ì´ë™ (íŒŒì¼ëª…ì„ ì „ì†¡)
+ *   5) RestController : Model (ìš”ì²­ì„ ë°›ì•„ì„œ ìš”ì²­ì²˜ë¦¬ í›„ì— ê²°ê³¼ê°’ì„ ì „ì†¡) 
+ *                   => ë°ì´í„° ì „ì†¡ (Ajax , VueJS , ReactJS) => JSON
+ *   6) ControllerAdvice : í†µí•© ì˜ˆì™¸ì²˜ë¦¬ 
+ *   -------------------------------------
+ *   --------------------
+ *   => ë©”ëª¨ë¦¬ í• ë‹¹ì´ ì—†ëŠ” ê²ƒ
+ */
 @Repository
 public class NatureDAO {
-@Autowired
-private NatureMapper mapper; //ÀÚµ¿À¸·Î MyBatis¿¡¼­ ±¸ÇöµÈ´Ù
-
-public List<NatureVO> natureListData()
-{
-	return mapper.natureListData();
-}
+   @Autowired
+   private NatureMapper mapper;// ìë™ìœ¼ë¡œ MyBatisì—ì„œ êµ¬í˜„ì´ ëœë‹¤ 
+   
+   public List<NatureVO> natureListData()
+   {
+	   return mapper.natureListData();
+   }
 }

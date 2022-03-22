@@ -1,13 +1,15 @@
 package com.sist.spring2;
 
-/*°áÇÕ¼ºÀÌ Á» ´õ ³·Àº »óÅÂ
+/*ê²°í•©ì„±ì´ ì¢€ ë” ë‚®ì€ ìƒíƒœ
 */
 public class HelloImple implements Hello {
 
 	@Override
 	public String sayHello(String name) {
-		
-		return name+"´Ô È¯¿µÇÕ´Ï´Ù!!";
+		// TODO Auto-generated method stub
+		return name+"ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤";
 	}
+
+
 
 }

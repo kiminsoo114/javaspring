@@ -1,10 +1,11 @@
 package com.sist.di2;
 
+
 public class Sawon {
 	private String name;
 	public Sawon(String name) {
 		this.name = name;
-		System.out.println("»ı¼ºÀÚ¸¦ ÅëÇØ °ªÀ» ÀÔ·Â..");//1
+		System.out.println("ìƒì„±ìë¥¼ í†µí•´ ê°’ì„ ì…ë ¥..");//1
 	}
 
 	public String getName() {
@@ -13,14 +14,14 @@ public class Sawon {
 
 	public void setName(String name) {
 		this.name = name;
-		System.out.println("setName()À» ÅëÇØ °ªÀ» ÀÔ·Â..");//2
+		System.out.println("setName()ì„ í†µí•´ ê°’ì„ ì…ë ¥..");//2
 	}
 	public void init()
 	{
-		System.out.println("Sawon °´Ã¼ »ı¼º ¿Ï·á!!");//3
+		System.out.println("Sawon ê°ì²´ ìƒì„± ì™„ë£Œ!!");//3
 	}
 	public void destroy()
 	{
-		System.out.println("Sawon °´Ã¼ ¸Ş¸ğ¸® ÇØÁ¦!!");//4
+		System.out.println("Sawon ê°ì²´ ë©”ëª¨ë¦¬ í•´ì œ!!");//4
 	}
 }

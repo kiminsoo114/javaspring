@@ -46,3 +46,7 @@ public interface HotelMapper {
 	public HotelVO hotelDetailData(int no);
 }
 
+
+
+
+

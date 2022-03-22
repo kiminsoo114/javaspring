@@ -5,36 +5,36 @@ import org.apache.ibatis.annotations.Select;
 import com.sist.dao.*;
 public interface BooksMapper {
   @Select("SELECT title,price FROM books")
-  public List<BooksVO> booksListData(); // ±¸Çö ¿Ï·á
+  public List<BooksVO> booksListData(); // êµ¬í˜„ ì™„ë£Œ
   @Select("SELECT title,price FROM books "
 		 +"WHERE title LIKE '%'||#{title}||'%'")
   public List<BooksVO> booksFindData(String title);
   //                        mysql => concat('%',#{title},'%')
-  //  NVL => ifnull , ÀÎ¶óÀÎºä , limit start,°¹¼ö => mysql 
+  //  NVL => ifnull , ì¸ë¼ì¸ë·° , limit start,ê°¯ìˆ˜ => mysql 
   //     ------------- ------------- -
-  //        resultType(¸®ÅÏÇü)  id parameterType(¸Å°³º¯¼ö)
+  //        resultType(ë¦¬í„´í˜•)  id parameterType(ë§¤ê°œë³€ìˆ˜)
   // <bean id="" resultType="" parameterType="">
   /*
-   *    resultType : °ªÀ» ¹Ş¾Æ¼­ ÀúÀåÇÒ¶§ »ç¿ë 
+   *    resultType : ê°’ì„ ë°›ì•„ì„œ ì €ì¥í• ë•Œ ì‚¬ìš© 
    *                 List<BooksVO>
    *                 BooksVO
-   *                 ÀÏ¹İµ¥ÀÌÅÍÇü : String , int , double ....
-   *                 ResultSet°ü·Ã => ¾ø´Â °æ¿ì (insert,update,delete)
+   *                 ì¼ë°˜ë°ì´í„°í˜• : String , int , double ....
+   *                 ResultSetê´€ë ¨ => ì—†ëŠ” ê²½ìš° (insert,update,delete)
    *                 
-   *    parameterType : ?¿¡ °ªÀ» Ã¤¿î´Ù 
-   *                    ?°¡ ¿©·¯°³ ÀÖ´Â °æ¿ì (VO¿¡ ÀÖ´Â º¯¼ö => VO
-   *                                    VO¿¡ ¾ø´Â º¯¼ö => HashMap) 
-   *                    ?°¡ ÇÑ°³ ÀÖ´Â °æ¿ì : ÀÏ¹İ µ¥ÀÌÅÍÇüÀ» »ç¿ëÇÑ´Ù 
+   *    parameterType : ?ì— ê°’ì„ ì±„ìš´ë‹¤ 
+   *                    ?ê°€ ì—¬ëŸ¬ê°œ ìˆëŠ” ê²½ìš° (VOì— ìˆëŠ” ë³€ìˆ˜ => VO
+   *                                    VOì— ì—†ëŠ” ë³€ìˆ˜ => HashMap) 
+   *                    ?ê°€ í•œê°œ ìˆëŠ” ê²½ìš° : ì¼ë°˜ ë°ì´í„°í˜•ì„ ì‚¬ìš©í•œë‹¤ 
    *                                    String , int , double...
-   *                 PreparedStatement¿Í °ü·Ã 
+   *                 PreparedStatementì™€ ê´€ë ¨ 
    *                 public List<SeoulLocationVO> seoulLocationData(int page)
    {
 	   List<SeoulLocationVO> list=new ArrayList<SeoulLocationVO>();
 	   try
 	   {
-		   //1. ÁÖ¼Ò ÀĞ±â 
+		   //1. ì£¼ì†Œ ì½ê¸° 
 		   conn=dbcp.getConnection();
-		   //2. SQL¹®Àå 
+		   //2. SQLë¬¸ì¥ 
 		    * -----------------------------------------------------
 		   String sql="SELECT no,title,poster,num "
 				     +"FROM (SELECT no,title,poster,rownum as num "
@@ -42,13 +42,13 @@ public interface BooksMapper {
 				     +"FROM seoul_location ORDER BY no DESC)) "
 				     +"WHERE num BETWEEN ? AND ?";
 				     ----------------------------------------------
-		   // ÀÎ¶óÀÎºä => Top-N => Áß°£¿¡ µ¥ÀÌÅÍ¸¦ ÀÚ¸¦ ¼ö ¾ø´Ù 
+		   // ì¸ë¼ì¸ë·° => Top-N => ì¤‘ê°„ì— ë°ì´í„°ë¥¼ ìë¥¼ ìˆ˜ ì—†ë‹¤ 
 		   ps=conn.prepareStatement(sql);
 		   int rowSize=12;
 		   int start=(rowSize*page)-(rowSize-1);
 		   int end=rowSize*page; 
 		   
-		   // ?¿¡ °ªÀ» Ã¤¿î´Ù ==> parameterType
+		   // ?ì— ê°’ì„ ì±„ìš´ë‹¤ ==> parameterType
 		    * -------------------------
 		   ps.setInt(1, start);
 		   ps.setInt(2, end);

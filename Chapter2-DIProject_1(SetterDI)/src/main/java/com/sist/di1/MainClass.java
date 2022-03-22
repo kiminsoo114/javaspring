@@ -2,7 +2,7 @@ package com.sist.di1;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-//°ª ÁÖÀÔ ¹æ¹ý => setXxx(), »ý¼ºÀÚ()
+//Â°Âª ÃÃ–Ã€Ã” Â¹Ã¦Â¹Ã½ => setXxx(), Â»Ã½Â¼ÂºÃ€Ãš()
 public class MainClass {
 	
 	public static void main(String[] args) {

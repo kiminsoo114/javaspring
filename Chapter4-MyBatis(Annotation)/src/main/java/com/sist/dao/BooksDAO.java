@@ -3,7 +3,7 @@ import java.util.*;
 import com.sist.mapper.*;
 public class BooksDAO {
     private BooksMapper mapper;
-   // ½ºÇÁ¸µ¿¡¼­ ±¸ÇöµÈ mapper¸¦ ¹Ş¾Æ ¿Â´Ù 
+   // ìŠ¤í”„ë§ì—ì„œ êµ¬í˜„ëœ mapperë¥¼ ë°›ì•„ ì˜¨ë‹¤ 
 
 	public void setMapper(BooksMapper mapper) {
 		this.mapper = mapper;

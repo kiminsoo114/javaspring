@@ -8,26 +8,26 @@ public class MainClass {
 		
 		ApplicationContext app=
 				new ClassPathXmlApplicationContext("app.xml");
-		//ÀúÀåµÈ °´Ã¼¸¦ ¾ò¾î ¿Â´Ù.
+		//ì €ì¥ëœ ê°ì²´ë¥¼ ì–»ì–´ ì˜¨ë‹¤.
 		Sawon sa=(Sawon)app.getBean("sa1");
-		System.out.println("ÀÌ¸§:"+sa.getName());
-		System.out.println("ºÎ¼­:"+sa.getDept());
-		System.out.println("Á÷À§:"+sa.getJob());
-		System.out.println("³ªÀÌ:"+sa.getAge());
-		System.out.println("¿¬ºÀ:"+sa.getPay());
+		System.out.println("ì´ë¦„:"+sa.getName());
+		System.out.println("ë¶€ì„œ:"+sa.getDept());
+		System.out.println("ì§ìœ„:"+sa.getJob());
+		System.out.println("ë‚˜ì´:"+sa.getAge());
+		System.out.println("ì—°ë´‰:"+sa.getPay());
 		System.out.println("=================");
 		sa=(Sawon)app.getBean("sa2");
-		System.out.println("ÀÌ¸§:"+sa.getName());
-		System.out.println("ºÎ¼­:"+sa.getDept());
-		System.out.println("Á÷À§:"+sa.getJob());
-		System.out.println("³ªÀÌ:"+sa.getAge());
-		System.out.println("¿¬ºÀ:"+sa.getPay());
+		System.out.println("ì´ë¦„:"+sa.getName());
+		System.out.println("ë¶€ì„œ:"+sa.getDept());
+		System.out.println("ì§ìœ„:"+sa.getJob());
+		System.out.println("ë‚˜ì´:"+sa.getAge());
+		System.out.println("ì—°ë´‰:"+sa.getPay());
 		System.out.println("=================");
 		sa=(Sawon)app.getBean("sa3");
-		System.out.println("ÀÌ¸§:"+sa.getName());
-		System.out.println("ºÎ¼­:"+sa.getDept());
-		System.out.println("Á÷À§:"+sa.getJob());
-		System.out.println("³ªÀÌ:"+sa.getAge());
-		System.out.println("¿¬ºÀ:"+sa.getPay());
+		System.out.println("ì´ë¦„:"+sa.getName());
+		System.out.println("ë¶€ì„œ:"+sa.getDept());
+		System.out.println("ì§ìœ„:"+sa.getJob());
+		System.out.println("ë‚˜ì´:"+sa.getAge());
+		System.out.println("ì—°ë´‰:"+sa.getPay());
 	}
 }

@@ -3,19 +3,19 @@ package com.sist.container5;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
-// ½ºÇÁ¸µ 5 => Å¬·¡½º µî·Ï½Ã¿¡ XMLÀ» »ç¿ëÇÏ´Â °ÍÀÌ ¾Æ´Ï¶ó ¼ø¼öÇÏ°Ô ÀÚ¹Ù·Î¸¸ »ç¿ë
-// º¸¾È => XML(³ëÃâ°¡´É) => ÀÚ¹Ù´Â ÄÄÆÄÀÏµÈ ÆÄÀÏ¸¸ Á¦°ø(¼Ò½º³ëÃâÀÌ ¾ÈµÊ)
-// => ±³Àç ½ºÇÁ¸µ 5 
-// ½Ç¹«(À¯Áöº¸¼ö => 4¹öÀü) , Â÷¼¼´ë °³¹ß(5¹öÀü)
+// ìŠ¤í”„ë§ 5 => í´ë˜ìŠ¤ ë“±ë¡ì‹œì— XMLì„ ì‚¬ìš©í•˜ëŠ” ê²ƒì´ ì•„ë‹ˆë¼ ìˆœìˆ˜í•˜ê²Œ ìë°”ë¡œë§Œ ì‚¬ìš©
+// ë³´ì•ˆ => XML(ë…¸ì¶œê°€ëŠ¥) => ìë°”ëŠ” ì»´íŒŒì¼ëœ íŒŒì¼ë§Œ ì œê³µ(ì†ŒìŠ¤ë…¸ì¶œì´ ì•ˆë¨)
+// => êµì¬ ìŠ¤í”„ë§ 5 
+// ì‹¤ë¬´(ìœ ì§€ë³´ìˆ˜ => 4ë²„ì „) , ì°¨ì„¸ëŒ€ ê°œë°œ(5ë²„ì „)
 @Configuration
-// ½ºÇÁ¸µ 5 => Å¬·¡½º¸¦ µî·ÏÇÏ´Â ÆÄÀÏ 
+// ìŠ¤í”„ë§ 5 => í´ë˜ìŠ¤ë¥¼ ë“±ë¡í•˜ëŠ” íŒŒì¼ 
 public class SawonConfig {
 	/*
 	 * 		<bean id="sa" class="com.sist.container.Sawon" scope="prototype"></bean>
 	*/
 	@Bean("sa") // id 
-	@Scope("prototype")	//¿©·¯°³ »ç¿ëÀÌ °¡´É(¸Ş¸ğ¸® ÁÖ¼Ò°ªÀº Ç×»ó µ¿ÀÏ) , °á±¹¿£ ÇÑ°³¸¸ »ç¿ë
-	// XML°ú ¸¶Âù°¡Áö·Î »ı·«ÇÏ¸é singletonÀÌ defaultÀÌ´Ù
+	@Scope("prototype")	//ì—¬ëŸ¬ê°œ ì‚¬ìš©ì´ ê°€ëŠ¥(ë©”ëª¨ë¦¬ ì£¼ì†Œê°’ì€ í•­ìƒ ë™ì¼) , ê²°êµ­ì—” í•œê°œë§Œ ì‚¬ìš©
+	// XMLê³¼ ë§ˆì°¬ê°€ì§€ë¡œ ìƒëµí•˜ë©´ singletonì´ defaultì´ë‹¤
 	public Sawon sawon(){
 		return new Sawon(); //class
 	}

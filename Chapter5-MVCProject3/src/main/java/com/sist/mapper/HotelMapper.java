@@ -29,7 +29,7 @@ public interface HotelMapper {
 	 *     SELECT no,name,poster,score FROM seoul_hotel 
 	 *     limit #{start},#{rowSize}
 	 *     
-	 *     NVL ==> ifnull ..
+	 *     NVL ==> ifnull .. 
 	 */
 	// SQL문장을 수행하는 메소드를 선언=마이바티스에서 자동 구현 
 	public List<HotelVO> hotelListData(Map map); // #{start} , map.get("start")

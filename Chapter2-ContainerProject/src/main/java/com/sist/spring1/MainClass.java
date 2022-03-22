@@ -1,14 +1,14 @@
 package com.sist.spring1;
 
-/*°¡±ŞÀûÀÌ¸é new¸¦ »ç¿ëÇÏÁö ¾Ê´Â´Ù
- * new¸¦ »ç¿ëÇÏ¸é ÀÇÁ¸¼ºÀÌ ³ôÀº ÇÁ·Î±×·¥À¸·Î º¯°æ => À¯Áöº¸¼ö°¡ ¾î·Æ´Ù (½ºÇÁ¸µ = À¯Áöº¸¼ö°¡ ÆíÇÑ ÇÁ·Î±×·¥)
- * ·Îµå Á¸½¼ => opensource±×·ì
+/*ê°€ê¸‰ì ì´ë©´ newë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤
+ * newë¥¼ ì‚¬ìš©í•˜ë©´ ì˜ì¡´ì„±ì´ ë†’ì€ í”„ë¡œê·¸ë¨ìœ¼ë¡œ ë³€ê²½ => ìœ ì§€ë³´ìˆ˜ê°€ ì–´ë µë‹¤ (ìŠ¤í”„ë§ = ìœ ì§€ë³´ìˆ˜ê°€ í¸í•œ í”„ë¡œê·¸ë¨)
+ * ë¡œë“œ ì¡´ìŠ¨ => opensourceê·¸ë£¹
 */
 public class MainClass {
 	
 	public static void main(String[] args) {
 		Hello hello = new Hello();
-		String msg=hello.sayHello("È«±æµ¿");
+		String msg=hello.sayHello("í™ê¸¸ë™");
 		System.out.println(msg);
 	}
 }

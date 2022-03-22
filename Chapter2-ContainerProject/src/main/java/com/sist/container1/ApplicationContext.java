@@ -12,24 +12,24 @@ import org.w3c.dom.NodeList;
 import java.io.*;
 
 /*
- *  	ÄÁÅ×ÀÌ³Ê / ÄÄÆ÷³ÍÆ® (»ç¿ëÀÚÁ¤ÀÇ) => ÇÑ°³ Class
+ *  	ì»¨í…Œì´ë„ˆ / ì»´í¬ë„ŒíŠ¸ (ì‚¬ìš©ìì •ì˜) => í•œê°œ Class
  *  	------  
- *  	°ü¸®ÀÚ ¿ªÇÒ(½ºÇÁ¸µ¿¡¼­ Á¦°ø) => ¿äÃ»½Ã Ã£±â( °´Ã¼¸¦ Ã£¾Æ¼­ ³Ñ°ÜÁÖ´Â ¿ªÇÒ)
+ *  	ê´€ë¦¬ì ì—­í• (ìŠ¤í”„ë§ì—ì„œ ì œê³µ) => ìš”ì²­ì‹œ ì°¾ê¸°( ê°ì²´ë¥¼ ì°¾ì•„ì„œ ë„˜ê²¨ì£¼ëŠ” ì—­í• )
  *  	-------------------
  *  		BeanFactory
  *  			|
  * ---------------------------------------
  * | 									|
  * ApplicationContext			AnnotationConfigApplicationContext
- * |	XML·Î µî·Ï						|
+ * |	XMLë¡œ ë“±ë¡						|
 */
 public class ApplicationContext {
-	private Map map=new HashMap(); //Å¬·¡½º °´Ã¼ ÁÖ¼Ò¸¦ ÀúÀåÇÑ´Ù.
+	private Map map=new HashMap(); //í´ë˜ìŠ¤ ê°ì²´ ì£¼ì†Œë¥¼ ì €ì¥í•œë‹¤.
 	public ApplicationContext(String path)
 	{
 		try
 		{
-			//XML ÆÄ½Ì
+			//XML íŒŒì‹±
 			DocumentBuilderFactory dbf=
 					DocumentBuilderFactory.newInstance();
 			DocumentBuilder db=dbf.newDocumentBuilder();

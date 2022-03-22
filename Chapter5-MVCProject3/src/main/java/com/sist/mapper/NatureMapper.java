@@ -11,6 +11,8 @@ public interface NatureMapper {
 		 +"FROM seoul_nature)) "
 		 +"WHERE num BETWEEN #{start} AND #{end}")
   public List<NatureVO> natureListData(Map map);
+  //Map => key, value 
+  //List<NatureVO>list =new Arraylist<NatureVO>
   
   @Select("SELECT CEIL(COUNT(*)/20.0) FROM seoul_nature")
   public int natureTotalPage();

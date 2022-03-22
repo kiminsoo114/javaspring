@@ -5,7 +5,7 @@ public class Sawon {
 	private String dept;
 	private String loc;
 
-	// »ı¼ºÀÚ¸¦ ÀÌ¿ëÇÑ ¸â¹ö¸é¼ö °ª ÁÖÀÔ
+	// ìƒì„±ìë¥¼ ì´ìš©í•œ ë©¤ë²„ë©´ìˆ˜ ê°’ ì£¼ì…
 	public Sawon(String name, String dept, String loc) {
 		this.name = name;
 		this.dept = dept;
@@ -13,8 +13,8 @@ public class Sawon {
 	}
 
 	public void display() {
-		System.out.println("ÀÌ¸§:" + name);
-		System.out.println("ºÎ¼­:" + dept);
-		System.out.println("±Ù¹«Áö:" + loc);
+		System.out.println("ì´ë¦„:" + name);
+		System.out.println("ë¶€ì„œ:" + dept);
+		System.out.println("ê·¼ë¬´ì§€:" + loc);
 	}
 }

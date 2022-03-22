@@ -1,8 +1,7 @@
 package com.sist.config;
-//app.xmlÀ» ´ë½Å »ç¿ë (XMLÀ» ÃÖ´ëÇÑ Á¦°Å) => Çü½Ä (Spring-Boot)
-//Spring-Boot(¼­¹ö) => VueJS , ReactJS(¿ì´ë)
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.ibatis.builder.MapperBuilderAssistant;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperFactoryBean;
@@ -10,55 +9,73 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+// app.xmlì„ ëŒ€ì‹  ì‚¬ìš© (XMLì„ ìµœëŒ€í•œ ì œê±°) => í˜•ì‹ (Spring-Boot)
+// Spring-Boot(ì„œë²„) => VueJS , ReactJS (ìš°ëŒ€) (JSPì—†ì´ ì‚¬ìš©ì´ ê°€ëŠ¥)
 @Configuration
-//¸Ş¸ğ¸® ÇÒ´ç ¿äÃ» (¼³Á¤ÆÄÀÏ)
-@ComponentScan(basePackages ={"com.sist.*"})
-//<context:component-scan base-package="com.sist.*"/>
+// ë©”ëª¨ë¦¬ í• ë‹¹ ìš”ì²­  (ì„¤ì •íŒŒì¼)
+@ComponentScan(basePackages = {"com.sist.*"})
+// <context:component-scan base-package="com.sist.*">
+/*
+ *  <bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
+       p:driverClassName="oracle.jdbc.driver.OracleDriver"
+       p:url="jdbc:oracle:thin:@211.63.89.131:1521:XE"
+       p:username="hr"
+       p:password="happy"
+    />
+    <bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean"
+       p:dataSource-ref="ds"
+    />
+ */
 public class NatureConfig {
-	//¶óÀÌºê·¯¸® Å¬·¡½º (Á÷Á¢ µî·Ï)
-	//<bean id="">
-	@Bean("ds")
-	public BasicDataSource dataSource()
-	{
-		/*<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="oracle.jdbc.driver.OracleDriver"
-		p:url="jdbc:oracle:thin:@211.63.89.131:1521:XE"
-		p:username="hr"
-		p:password="happy"
-	/>
-		*/
-		BasicDataSource ds=new BasicDataSource();
-		//setXxx() °ªÀ» Ã¤¿î´Ù
-		ds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		ds.setUrl("jdbc:oracle:thin:@211.63.89.131:1521:XE");
-		ds.setUsername("hr");
-		ds.setPassword("happy");
-		return ds;
-	}
-	/*<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean"
-	 	p:dataSource-ref="ds"
-	/>
-	*/
-	@Bean("ssf")
-	public SqlSessionFactory sqlSessionFactory() throws Exception
-	{
-		SqlSessionFactoryBean ssf=
-				new SqlSessionFactoryBean();
-		ssf.setDataSource(dataSource());
-		return ssf.getObject();
-	}
-	/*
-	<mybatis-spring:scan base-package="com.sist.mapper"/>
-	*/
-	@Bean("mapper")
-	public MapperFactoryBean mapperFactoryBean() throws Exception
-	{
-		MapperFactoryBean mapper=
-				new MapperFactoryBean();
-		mapper.setSqlSessionFactory(sqlSessionFactory());
-		mapper.setMapperInterface(com.sist.mapper.NatureMapper.class);
-		return mapper;
-	}
-	
-	
+  // ë¼ì´ë¸ŒëŸ¬ë¦¬ í´ë˜ìŠ¤ (ì§ì ‘ ë“±ë¡) 
+  // <bean id="ds">
+  @Bean("ds")
+  public BasicDataSource dataSource()
+  {
+	  /*
+	   *  <bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
+		       p:driverClassName="oracle.jdbc.driver.OracleDriver"
+		       p:url="jdbc:oracle:thin:@211.63.89.131:1521:XE"
+		       p:username="hr"
+		       p:password="happy"
+		    />
+	   */
+	  BasicDataSource ds=new BasicDataSource();
+	  // setXxx()  ê°’ì„ ì±„ìš´ë‹¤ 
+	  ds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+	  ds.setUrl("jdbc:oracle:thin:@211.63.89.131:1521:XE");
+	  ds.setUsername("hr");
+	  ds.setPassword("happy");
+	  return ds;
+  }
+  /*
+   *   <bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean"
+       p:dataSource-ref="ds"
+       />
+   */
+  @Bean("ssf")
+  public SqlSessionFactory sqlSessionFactory() throws Exception
+  {
+	  SqlSessionFactoryBean ssf=
+			  new SqlSessionFactoryBean();
+	  ssf.setDataSource(dataSource());
+	  return ssf.getObject();
+  }
+  /*
+   *   <bean id="mapper" class="org.mybatis.spring.mapper.MapperFactoryBean"
+		      p:sqlSessionFactory-ref="ssf"
+		      p:mapperInterface="com.sist.mapper.BooksMapper"
+		    />
+   */
+  @Bean("mapper")
+  public MapperFactoryBean mapperFactoryBean() throws Exception
+  {
+	  MapperFactoryBean mapper=
+			  new MapperFactoryBean();
+	  mapper.setSqlSessionFactory(sqlSessionFactory());
+	  mapper.setMapperInterface(com.sist.mapper.NatureMapper.class);
+	  return mapper;
+  }
+  
 }
+
