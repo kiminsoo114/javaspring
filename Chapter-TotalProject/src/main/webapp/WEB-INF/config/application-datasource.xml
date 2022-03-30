@@ -39,6 +39,47 @@
         p:password="#{db['password']}"
     />
     <!-- Transaction -->
+    <tx:annotation-driven/>
+    <!-- @Transactional -->
+    <bean id="transactionManager"
+    	class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+    	p:dataSource-ref="ds"
+    	/>
+    	<!-- 
+    	DQL(SELECT)
+    	DML(INSERT,UPDATE,DELETE) => 저장(COMMIT), 취소(ROLLBACK)
+    	=> 일괄처리
+    	트랜잭션 설정 => 한개의 기능을 수행 DML이 여러개일 경우
+    	동시에 처리
+    			= 입고/재고
+    			= 출고/재고
+    			= 카드결제/포인트설정
+    			COMMIT => 정상 수행시에 오라클 저장
+    	try
+    	{
+    		getConnection()
+    		=========================
+    		@Around() conn.setAutoCommit(false); => 자바 JDBC는 autoCommit()
+    		=========================
+    		입고 INSERT
+    		재고 UPDATE
+    		=========================
+    		@Around() conn.commit()
+    		=========================
+    	}catch(Exception ex)
+    	{
+    		==========================
+    		conn.rollback() @AfterThrowing
+    		==========================
+    	}
+    	finally
+    	{
+    		==========================
+    		conn.setSutoCommit(true) @AfterThrowing
+    		==========================
+    		disConnection()
+    	}
+    	 -->
     <!-- MyBatis 실행 과정  -->
     <bean id="dataSource" 
           class="net.sf.log4jdbc.Log4jdbcProxyDataSource"> 
@@ -50,6 +91,7 @@
         </bean> 
       </property> 
     </bean>
+    
     <!-- MyBatis 연결 (getConnection,disConnection) -->
     <bean id="ssf"
        class="org.mybatis.spring.SqlSessionFactoryBean"

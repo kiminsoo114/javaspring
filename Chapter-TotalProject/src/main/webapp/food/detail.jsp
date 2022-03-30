@@ -115,12 +115,19 @@ $(function(){
              <c:forEach var="fvo" items="${rList }">
                <table class="table">
                  <tr>
-                  <td class="text-left">◐${fvo.name }(${fvo.dbday })</td>
+                  <td class="text-left">
+                  <c:if test="${fvo.group_tab>0 }">
+                  <c:forEach var="i" begin="1" end="${fvo.group_tab }">
+					&nbsp;&nbsp;                  
+                  </c:forEach>
+                  <img src:"re_icon.png">
+                  </c:if>
+                  	◐${fvo.name }(${fvo.dbday })</td>
                   <td class="text-right">
-                    <c:if test="${sessionScope.id!=null }">
+                    <c:if test="${sessionScope.id!=null&&fvo.msg!=msg}">
                      <c:if test="${sessionScope.id==fvo.id }">
                       <span class="btn btn-xs btn-info updates" value="${fvo.no }">수정</span>
-                      <span class="btn btn-xs btn-success">삭제</span>
+                      <a href="reply_delete.do?no=${fvo.no }&fno=${vo.no}" class="btn btn-xs btn-success">삭제</a>
                      </c:if>
                      <span class="btn btn-xs btn-warning replys" value="${fvo.no }">댓글</span>
                     </c:if>
@@ -128,7 +135,12 @@ $(function(){
                  </tr>
                  <tr>
                    <td colspan="2">
+                   <c:if test="${fvo.group_tab>0 }">
+                    <pre style="white-space: pre-wrap;background-color:white;border:none;margin-left:${25*fvo.group_tab} ">${fvo.msg }</pre>
+                  </c:if>
+                  <c:if test="${fvo.group_tab==0 }">
                     <pre style="white-space: pre-wrap;background-color:white;border:none">${fvo.msg }</pre>
+                    </c:if>
                    </td>
                  </tr>
                </table>
@@ -136,8 +148,9 @@ $(function(){
                <table class="table rInsert" id="m${fvo.no }" style="display:none">
 		         <tr>
 		           <td>
-		             <form method="post" action="#">
+		             <form method="post" action="reply_reply_insert.do">
 		              <input type=hidden name=fno value="${vo.no}">
+		              <input type=hidden name=pno value="${fvo.no }">
 		              <textarea rows="6" cols="76" style="float: left" name="msg"></textarea>
 		              <input type=submit value="댓글쓰기" 
 		              style="height: 122px;background-color: blue;color:white;"
