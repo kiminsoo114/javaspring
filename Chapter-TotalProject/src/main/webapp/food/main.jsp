@@ -27,6 +27,18 @@
      <a href="find.do" class="btn btn-sm btn-info">검색</a>
      <a href="recipe.do" class="btn btn-sm btn-info">레시피</a>
      <a href="chef.do" class="btn btn-sm btn-info">쉐프</a>
+     <a href="board.do" class="btn btn-sm btn-info">게시판</a>
+     <%--
+     	  사이트를 만든다면
+     	  1. 게시판 유무(자유게시판,묻고 답하기 => 실시간 채팅 )
+     	  2. 로그인 , 회원가입
+     	  3. 공지사항
+     	  4. 목록 출력 => 상세보기
+     	  ================================== 
+     	  5. 기타 옵션 : 예약, 구매 , 추천, 스트리밍, ... 경매
+     
+     
+      --%>
     </h3>
     <h3>믿고보는 맛집 리스트</h3>
     <hr>

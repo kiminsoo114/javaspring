@@ -37,7 +37,7 @@
              2. 면접 
              3. 실무 적응 (Order) 
  -->
-     
+     <mvc:annotation-driven/>
      <mvc:interceptors>
       <mvc:interceptor>
        <mvc:mapping path="/**/*"/>
