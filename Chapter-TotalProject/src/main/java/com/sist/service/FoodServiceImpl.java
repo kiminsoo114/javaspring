@@ -5,18 +5,19 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.sist.dao.*;
+
 import com.sist.vo.CategoryVO;
 import com.sist.vo.FoodVO;
 import com.sist.vo.RecipeVO;
-
-@Service //DAO여러개 통합(BI) => DAO VS SERVICE
-//*** SQL Injection 방지 (클래스 캡슐화) => 해킹방지
-public class FoodServiceImpl implements FoodService {
-	@Autowired
-	private CategoryDAO cdao;
-	@Autowired
-	private FoodDAO fdao;
+import com.sist.dao.*;
+@Service // DAO 여러개 통합 (BI) => 3문제 DAO VS Service
+// *** SQL Injection 방지 (클래스 캡슐화)
+public class FoodServiceImpl implements FoodService{
+    @Autowired
+    private CategoryDAO cdao;
+    @Autowired
+    private FoodDAO fdao;
+	
 	@Override
 	public List<FoodVO> categoryFoodListData(int cno) {
 		// TODO Auto-generated method stub
@@ -48,9 +49,9 @@ public class FoodServiceImpl implements FoodService {
 	}
 
 	@Override
-	public int foodFindTotalpge(String address) {
+	public int foodFindTotalpage(String address) {
 		// TODO Auto-generated method stub
-		return fdao.foodFindTotalpge(address);
+		return fdao.foodFindTotalpage(address);
 	}
 
 	@Override
@@ -60,4 +61,5 @@ public class FoodServiceImpl implements FoodService {
 	}
 	
 	
+
 }

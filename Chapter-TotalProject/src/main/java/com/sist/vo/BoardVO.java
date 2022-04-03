@@ -1,13 +1,12 @@
 package com.sist.vo;
-import java.util.*;
-//CURD 공부과정
+import java.util.*; //CURD
+
 import lombok.Getter;
 import lombok.Setter;
-
-@Setter
 @Getter
+@Setter
 public class BoardVO {
-	private int no,hit;
-	private String name,subject,content,pwd,dbday;
-	private Date regdate;
+  private int no,hit;
+  private String name,subject,content,pwd,dbday;
+  private Date regdate;
 }

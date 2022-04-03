@@ -20,21 +20,24 @@
 </head>
 <body>
    <div class="container">
-     <h1 class="text-center">글쓰기</h1>
+     <h1 class="text-center">수정하기</h1>
      <div class="row">
        <table class="table">
         <tr>
          <th width=15% class="text-right warning">이름</th>
-         <td width=85%><input type=text id="name" size=15 v-model="name"></td>
+         <td width=85%><input type=text id="name" size=15 
+         v-model="name" :value="name"></td>
+         <%-- value="${name}" --%>
         </tr>
         <tr>
          <th width=15% class="text-right warning">제목</th>
-         <td width=85%><input type=text id="subject" size=50 v-model="subject"></td>
+         <td width=85%><input type=text id="subject" size=50 
+         v-model="subject" :value="subject"></td>
         </tr>
         <tr>
          <th width=15% class="text-right warning">내용</th>
          <td width=85%>
-          <textarea rows="10" cols="55" id="content" v-model="content"></textarea>
+          <textarea rows="10" cols="55" id="content" v-model="content">{{content}}</textarea>
          </td>
         </tr>
         <tr>
@@ -43,7 +46,7 @@
         </tr>
         <tr>
           <td colspan="2" class="text-center">
-           <button class="btn btn-sm btn-info" v-on:click="write()">글쓰기</button>
+           <button class="btn btn-sm btn-info" v-on:click="write()">수정</button>
            <button class="btn btn-sm btn-success" v-on:click="cancel()">취소</button>
           </td>
         </tr>
@@ -64,7 +67,22 @@
     		name:'',
     		subject:'',
     		content:'',
-    		pwd:''
+    		pwd:'',
+    		no:${no},
+    		vo:{}
+    	},
+    	mounted:function(){
+    		axios.get('http://localhost:8080/web/food/board_update_vue.do',{
+    			params:{
+    				no:this.no
+    			}
+    		}).then(res=>{
+    			console.log(res.data);
+    			this.vo=res.data;
+    			this.name=this.vo.name;
+    			this.subject=this.vo.subject;
+    			this.content=this.vo.content;
+    		})
     	},
     	methods:{
     		write:function(){
@@ -94,15 +112,28 @@
     			} 
     			
     			// 전송 서버 
-    			axios.get('http://localhost:8080/web/food/insert_ok.do',{
+    			axios.get('http://localhost:8080/web/food/update_ok_vue.do',{
     				params:{
+    					no:this.no,
     					name:this.name,
     					subject:this.subject,
     					content:this.content,
     					pwd:this.pwd
     				}
     			}).then(res=>{
-    				location.href="board.do"
+    				if(res.data=="YES")
+    				{
+    					location.href="board_detail.do?no="+this.no
+        				// return "redirect:board_detail.do?no="+no
+    				}
+    				else
+    				{
+    					alert("비밀번호가 틀립니다!!")
+    					let n=document.getElementById("pwd");
+    					this.pwd="";
+    					n.focus();
+        				
+    				}
     				
     			})
     		},
@@ -114,12 +145,3 @@
    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-

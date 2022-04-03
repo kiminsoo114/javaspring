@@ -69,14 +69,18 @@ public interface RecipeMapper {
 		 +"WHERE no=#{no}")
   public RecipeDetailVO recipeDetailData(int no);
   
-  //상품 목록
-  @Select("SELECT product_id as id,product_price as price,"
-  		+ "product_name as name,product_poster as poster,rownum "
-  		+ "FROM(SELECT product_id,product_price,product_name,product_poster "
-  		+ "FROM goods ORDER BY product_price ASC) "
-  		+ "WHERE product_name LIKE '%'||#{product_name}||'%' "
-  		+ "ORDER BY product_price ASC) "
-  		+ "WHERE rownum<=3")
+  // 상품 목록
+  @Select("SELECT product_id as id,product_price as price,product_name as name,product_poster as poster,rownum "
+		 +"FROM (SELECT product_id,product_price,product_name,product_poster "
+		 +"FROM goods "
+		 +"WHERE product_name LIKE '%'||#{product_name}||'%' "
+		 +"ORDER BY product_price ASC) "
+		 +"WHERE rownum<=3")
   public List<GoodsVO> goodsTopData(String product_name);
 }
+
+
+
+
+
 

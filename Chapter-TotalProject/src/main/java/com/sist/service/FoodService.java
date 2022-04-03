@@ -1,18 +1,14 @@
 package com.sist.service;
-
-import java.util.List;
-import java.util.Map;
+// 관련된 DAO를 모아서 관리 => BI
+import java.util.*;
 import com.sist.vo.*;
-import com.sist.mapper.*;
-
-//관련된 DAO를 모아서 처리
+import com.sist.dao.*;
 public interface FoodService {
-
 	public List<FoodVO> categoryFoodListData(int cno);
 	public FoodVO foodDetailData(Map map);
 	public List<FoodVO> foodFindData(Map map);
 	public List<CategoryVO> categoryListData();
 	public CategoryVO categoryInfoData(int cno);
-	public int foodFindTotalpge(String address);
+	public int foodFindTotalpage(String address);
 	public List<RecipeVO> recipeTypeData(String type);
 }

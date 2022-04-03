@@ -116,15 +116,16 @@ $(function(){
                <table class="table">
                  <tr>
                   <td class="text-left">
-                  <c:if test="${fvo.group_tab>0 }">
-                  <c:forEach var="i" begin="1" end="${fvo.group_tab }">
-					&nbsp;&nbsp;                  
-                  </c:forEach>
-                  <img src:"re_icon.png">
-                  </c:if>
-                  	◐${fvo.name }(${fvo.dbday })</td>
+                   <c:if test="${fvo.group_tab>0 }">
+                     <c:forEach var="i" begin="1" end="${fvo.group_tab }">
+                       &nbsp;&nbsp;
+                     </c:forEach>
+                     <img src="re_icon.png">
+                   </c:if>
+                                          ◐${fvo.name }(${fvo.dbday })
+                  </td>
                   <td class="text-right">
-                    <c:if test="${sessionScope.id!=null&&fvo.msg!=msg}">
+                    <c:if test="${sessionScope.id!=null && fvo.msg!=msg}">
                      <c:if test="${sessionScope.id==fvo.id }">
                       <span class="btn btn-xs btn-info updates" value="${fvo.no }">수정</span>
                       <a href="reply_delete.do?no=${fvo.no }&fno=${vo.no}" class="btn btn-xs btn-success">삭제</a>
@@ -135,11 +136,11 @@ $(function(){
                  </tr>
                  <tr>
                    <td colspan="2">
-                   <c:if test="${fvo.group_tab>0 }">
-                    <pre style="white-space: pre-wrap;background-color:white;border:none;margin-left:${25*fvo.group_tab} ">${fvo.msg }</pre>
-                  </c:if>
-                  <c:if test="${fvo.group_tab==0 }">
-                    <pre style="white-space: pre-wrap;background-color:white;border:none">${fvo.msg }</pre>
+                    <c:if test="${fvo.group_tab>0 }">
+                      <pre style="white-space: pre-wrap;background-color:white;border:none;margin-left: ${20*fvo.group_tab}px">${fvo.msg }</pre>
+                    </c:if>
+                    <c:if test="${fvo.group_tab==0 }">
+                      <pre style="white-space: pre-wrap;background-color:white;border:none">${fvo.msg }</pre>
                     </c:if>
                    </td>
                  </tr>
@@ -151,7 +152,7 @@ $(function(){
 		             <form method="post" action="reply_reply_insert.do">
 		              <input type=hidden name=fno value="${vo.no}">
 		              <input type=hidden name=pno value="${fvo.no }">
-		              <textarea rows="6" cols="76" style="float: left" name="msg"></textarea>
+		              <textarea rows="6" cols="77" style="float: left" name="msg"></textarea>
 		              <input type=submit value="댓글쓰기" 
 		              style="height: 122px;background-color: blue;color:white;"
 		              >
@@ -166,7 +167,7 @@ $(function(){
 		             <form method="post" action="reply_update.do">
 		              <input type=hidden name=fno value="${vo.no}">
 		              <input type=hidden name=no value="${fvo.no }">
-		              <textarea rows="6" cols="76" style="float: left" name="msg">${fvo.msg }</textarea>
+		              <textarea rows="6" cols="77" style="float: left" name="msg">${fvo.msg }</textarea>
 		              <input type=submit value="수정하기" 
 		              style="height: 122px;background-color: blue;color:white;"
 		              >
@@ -185,7 +186,7 @@ $(function(){
 	           <td>
 	             <form method="post" action="reply_insert.do">
 	              <input type=hidden name=fno value="${vo.no}">
-	              <textarea rows="6" cols="76" style="float: left" name="msg"></textarea>
+	              <textarea rows="6" cols="77" style="float: left" name="msg"></textarea>
 	              <input type=submit value="댓글쓰기" 
 	              style="height: 122px;background-color: blue;color:white;"
 	              >
@@ -198,6 +199,7 @@ $(function(){
       <div class="col-sm-3">
         <%-- 레시피  --%>
         <table class="table">
+          <caption><h3 style="color:orange">맛집 레시피</h3></caption>
           <c:forEach var="rvo" items="${list }">
             <tr>
               <td class="text-center">
@@ -213,3 +215,11 @@ $(function(){
   </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
